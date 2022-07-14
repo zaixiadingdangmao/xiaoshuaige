@@ -4,49 +4,75 @@
  * @Date: 2022-05-16 15:31:03
  */
 
-@import url('https://cdn.jsdelivr.net/gh/zaixiadingdangmao/u-file-source/index.css');
+/* 引入图标库 */
+@font-face {
+  font-family: 'iconfont'; /* Project id 3402985 */
+  src: url('./xiaoshuaige/iconfont.woff2?t=1657793499420') format('woff2'),
+    url('./xiaoshuaige/iconfont.woff?t=1657793499420') format('woff'),
+    url('./xiaoshuaige/iconfont.ttf?t=1657793499420') format('truetype');
+}
+
+@font-face {
+  font-family: 'HYZhengYuan';
+  src: url('./xiaoshuaige/HYZhengYuan.ttf');
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('./xiaoshuaige/JetBrainsMono.ttf');
+}
+
+$--text-color-1: #304455; // 标题
+$--text-color-2: #363636; // 文本
+$--theme-color-1: #446a37; // a 文件高亮选中  主题基准色
+$--theme-color-2: #4c8045; // 引用块
+$--theme-color-3: #689450; // 行内代码
+$--theme-color-4: #a8bf8f; // checked kbd
 
 :root {
   /* 代码的等宽字体 */
   --monospace: 'Hack', 'HYZhengYuan', 'JetBrainsMono', 'Fira Code', 'Consolas';
-
-  /* 改变背景色 */
-  --bg-color: #ffffff;
-  /* 背景网格颜色 */
-  --bg--grid--color: rgba(#487091, 0.1);
-
-  /* 改变文字颜色 */
-  --text-color: #304455;
   /* 文本字体 */
   --text-font: var(--monospace);
-  /* 高亮色 */
-  --drake-accent: #5d93ad;
-  --drake-highlight: #78a0c1;
 
-  --block-bg-color: rgba(#ffffff, 1);
-  --tw-shadow: 0px 0.8px 2px rgba(0, 0, 0, 0.032),
-    0px 2.7px 6.7px rgba(0, 0, 0, 0.048), 0px 12px 30px rgba(0, 0, 0, 0.08);
+  /* 背景色 */
+  --bg-color: #ffffff;
+  /* 背景网格颜色 */
+  --bg--grid--color: rgba($--theme-color-1, 0.1);
 
   /* 标题颜色 */
-  --title-color: var(--text-color);
+  --title-color: $--text-color-1;
+  /* 文字颜色 */
+  --text-color: $--text-color-2;
+
+  /* 高亮色 */
+  --drake-accent: $--theme-color-1;
+  --drake-highlight: $--theme-color-4;
+
+  --block-bg-color: rgba(#ffffff, 1);
+  --block-border-color: rgba($--text-color-1, 0.5);
+  // --tw-shadow: 0px 0.8px 2px rgba(0, 0, 0, 0.032),
+  //   0px 2.7px 6.7px rgba(0, 0, 0, 0.048), 0px 12px 30px rgba(0, 0, 0, 0.08);
+  --tw-shadow: 0 0 0px;
+  --border-radius-box: 0.5rem;
 
   --yaml-color: #777;
   --yaml-bg-color: #f7f7f7;
 
   --a-color: var(--drake-accent);
 
-  --table-border-color: transparent;
+  --table-border-color: #dfe2e5;
   --table-even-bg-color: #f8f8f8;
 
-  --blockquote-color: #487091;
-  --blockquote-bg-color: rgba(#487091, 0.2);
+  --blockquote-color: $--theme-color-2;
+  --blockquote-bg-color: rgba($--theme-color-2, 0.15);
+
+  --code-color: --theme-color-3;
+  --code--bg-color: rgba($--theme-color-3, 0.15);
 
   --code-block-color: #525252;
   --code-block-border-color: #5b5b5e;
   --code-block-bg-color: #f8f8f8;
-
-  --code-color: var(--blockquote-color);
-  --code--bg-color: var(--blockquote-bg-color);
 
   /*
    * ---------------------
@@ -96,28 +122,27 @@ body {
   margin: 0 auto;
   padding: 30px 80px 100px;
   max-width: 1400px;
-  background-image: linear-gradient(90deg, var(--bg--grid--color), 3%, transparent 0),
-    linear-gradient(1turn, var(--bg--grid--color), 3%, transparent 0);
+  background-image: linear-gradient(90deg, var(--bg--grid--color), 1px, transparent 0),
+    linear-gradient(var(--bg--grid--color), 1px, transparent 0);
   background-size: 20px 20px;
   background-position: 50%;
   background-color: var(--bg-color);
 
   /*
- * ---------------------
- * Block Elements 
- */
+  * ---------------------
+  * Block Elements 
+  */
 
   /* yaml */
   pre.md-meta-block {
     margin-top: 0 !important;
     padding: 1rem 1.5rem;
     border: 0;
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius-box);
     font-size: 1rem;
     line-height: 1.45;
     color: var(--yaml-color);
     background-color: var(--yaml-bg-color);
-    box-shadow: var(--tw-shadow);
   }
 
   /* headings */
@@ -128,7 +153,7 @@ body {
   h5,
   h6 {
     position: relative;
-    margin: 2rem 0 1rem 0;
+    margin: 1.5rem 0 1rem 0;
     font-weight: bold;
     line-height: 1.4;
     color: var(--title-color);
@@ -137,16 +162,20 @@ body {
 
   h1 {
     margin-top: 0;
-    font-size: 2.25rem;
+    font-size: 2rem;
     text-align: center;
   }
 
   h2 {
+    font-size: 1.8rem;
+
     .md-plain {
       border-bottom: 0.2rem solid var(--title-color);
     }
 
     a {
+      text-decoration: none;
+
       .md-plain {
         border-bottom: 0.2rem solid var(--a-color);
       }
@@ -167,14 +196,6 @@ body {
 
   h6 {
     font-size: 1rem;
-  }
-
-  /* table */
-  .md-table-fig {
-    border-radius: 0.5rem;
-    color: var(--text-color);
-    box-shadow: var(--tw-shadow);
-    background: var(--block-bg-color);
   }
 
   /* lists */
@@ -211,14 +232,16 @@ body {
   /* blockquote */
   blockquote {
     position: relative;
+    margin: 2em 0;
     padding: 1rem 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius-box);
     font-weight: bold;
     color: var(--blockquote-color);
     box-shadow: var(--tw-shadow);
     background-color: var(--blockquote-bg-color);
 
     > p {
+      margin: 0;
       line-height: 1.5;
     }
   }
@@ -234,12 +257,13 @@ body {
   }
 
   p {
-    margin: 0 0 1.25rem;
+    margin: 1.25rem 0;
+    line-height: 2;
   }
 
   /* diagram panel */
   .md-diagram-panel {
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius-box);
     box-shadow: var(--tw-shadow);
     background: var(--block-bg-color);
 
@@ -359,10 +383,6 @@ body {
     }
   }
 
-  /* reference link definition */
-  .md-def-link {
-  }
-
   /* footnote definition */
   .md-def-footnote {
     .md-def-name:before {
@@ -376,121 +396,16 @@ body {
   .md-fences {
     padding: 1rem 0.5rem !important;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius-box);
     font-size: 1rem;
     word-wrap: normal;
-    color: var(--code-block-color);
+    border: 1px solid var(--block-border-color);
     box-shadow: var(--tw-shadow);
+    color: var(--code-block-color);
     background: var(--block-bg-color);
 
-    .code-tooltip {
-      border-radius: 0.4em;
-      box-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.3);
-      background: var(--block-bg-color);
-    }
-
-    .cm-s-inner {
-      .CodeMirror-gutters {
-        border-right: 1px solid rgba(120, 120, 120, 0.3);
-      }
-
-      .CodeMirror-guttermarker,
-      .CodeMirror-guttermarker-subtle,
-      .CodeMirror-linenumber {
-        color: #999;
-      }
-
-      .CodeMirror-cursor {
-        border-left: 0.1rem solid var(--text-color);
-      }
-
-      div.CodeMirror-selected {
-        background: rgba(255, 255, 255, 0.15);
-      }
-
-      .CodeMirror-line::selection,
-      .CodeMirror-line > span::selection,
-      .CodeMirror-line > span > span::selection {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      .CodeMirror-line::-moz-selection,
-      .CodeMirror-line > span::-moz-selection,
-      .CodeMirror-line > span > span::-moz-selection {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      .CodeMirror-activeline-background {
-        background: rgba(0, 0, 0, 0);
-      }
-
-      .cm-keyword {
-        color: #d63200;
-      }
-
-      .cm-def {
-        color: var(--code-block-color) !important;
-      }
-
-      .cm-comment {
-        color: #787878 !important;
-      }
-
-      .cm-number {
-        color: #f77669;
-      }
-
-      .cm-string {
-        color: var(--code-color) !important;
-      }
-
-      .cm-tag {
-        color: #275fe4;
-      }
-      // .cm-operator {
-      //   color: rgba(233, 237, 237, 1);
-      // }
-      //   .cm-variable-2 {
-      //     color: #80cbc4;
-      //   }
-      //   .cm-variable-3 {
-      //     color: #82b1ff;
-      //   }
-      //   .cm-builtin {
-      //     color: #decb6b;
-      //   }
-      //   .cm-atom {
-      //     color: #f77669;
-      //   }
-      //   .cm-string-2 {
-      //     color: #80cbc4;
-      //   }
-      //   .cm-variable {
-      //     color: #82b1ff;
-      //   }
-      //   .cm-meta {
-      //     color: #80cbc4;
-      //   }
-      //   .cm-attribute {
-      //     color: #ffcb6b;
-      //   }
-      //   .cm-property {
-      //     color: #80cbae;
-      //   }
-      //   .cm-qualifier {
-      //     color: #decb6b;
-      //   }
-      //   .cm-variable-3 {
-      //     color: #decb6b;
-      //   }
-      //   .cm-error {
-      //     color: rgba(255, 255, 255, 1);
-      //     background-color: #ec5f67;
-      //   }
-      //   .CodeMirror-matchingbracket {
-      //     text-decoration: underline;
-      //     color: white !important;
-      //   }
+    &.md-focus .cm-s-inner .CodeMirror-activeline-background {
+      background: rgba(0, 0, 0, 0.05);
     }
   }
 
@@ -504,19 +419,19 @@ body {
 
   /* 数学公式 */
   .md-rawblock {
-    &:hover {
-      .md-rawblock-container {
-        border-radius: 0.5rem;
-        box-shadow: var(--tw-shadow);
-        background: var(--block-bg-color);
-        transition: 0.3s;
-      }
+    .md-rawblock-container {
+      border-radius: var(--border-radius-box);
+      border: 1px solid var(--block-border-color);
+      box-shadow: var(--tw-shadow);
+      background: var(--block-bg-color);
+      transition: 0.3s;
     }
 
     .md-mathblock-panel {
+      border-radius: var(--border-radius-box);
+      border: 1px solid var(--block-border-color);
       box-shadow: var(--tw-shadow);
       background: var(--block-bg-color);
-      border-radius: 0.5rem;
       overflow: hidden;
 
       .md-rawblock-control {
@@ -566,8 +481,8 @@ body {
         left: 0;
         margin: 0;
         transform: translateX(-125%);
-        width: 1.6rem;
-        height: 1.6rem;
+        width: 1.8rem;
+        height: 1.8rem;
         opacity: 0;
       }
 
@@ -578,7 +493,7 @@ body {
         transform: translateX(-125%);
         color: var(--drake-highlight);
         line-height: initial;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
 
         font-family: 'iconfont' !important;
         font-style: normal;
@@ -604,7 +519,7 @@ body {
   }
 
   .modal-content {
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius-box);
   }
 
   /**
@@ -617,41 +532,41 @@ body {
   /* 代码片段 */
   code {
     padding: 0.1rem 0.4rem;
-    border-radius: 0.4rem;
+    border-radius: 0.2rem;
     color: var(--code-color);
     background-color: var(--code--bg-color);
   }
 
   strong {
     font-weight: bold;
-    color: var(--code-color);
+    color: var(--text-color);
   }
 
   a {
     color: var(--a-color);
-    text-decoration: none;
+    // text-decoration: none;
 
-    .md-plain {
-      border-bottom: 0.1rem solid var(--a-color);
-    }
+    // .md-plain {
+    //   border-bottom: 0.1rem solid var(--a-color);
+    // }
   }
 
   .md-image {
     .md-meta {
       /* 插入图片路径 */
-      border-radius: 2px;
-      font-family: initial;
       padding: 2px 0 0 4px;
+      border-radius: 0.2rem;
+      font-family: initial;
       color: inherit;
     }
   }
 
   img {
-    padding: 0.5rem;
     border-left: none;
     border-right: none;
     vertical-align: baseline;
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius-box);
+    border: 1px solid var(--block-border-color);
     box-shadow: var(--tw-shadow);
     background-color: var(--block-bg-color);
   }
@@ -661,7 +576,7 @@ body {
     padding: 0.1rem 0.5rem;
     font-size: 1rem;
     font-weight: bold;
-    border: 1px solid var(--code-color);
+    border: 0.15rem solid var(--code-color);
     border-radius: 0.4rem;
     color: var(--code-color);
     background-color: transparent;
@@ -669,37 +584,45 @@ body {
 
   kbd {
     margin: 0 0.4rem;
-    padding: 0.1em 0.4em;
-    border: 0.1em solid var(--drake-highlight);
-    border-radius: 0.4em;
+    padding: 0.1rem 0.4rem;
+    border: 0.1rem solid var(--drake-highlight);
     font-family: var(--text-font) !important;
     font-size: 0.95rem;
     vertical-align: top;
-    box-shadow: none;
     color: var(--drake-highlight);
     background: transparent;
   }
 }
 
-table {
+.md-table-fig {
+  border-radius: var(--border-radius-box);
+  border: 1px solid var(--block-border-color);
+  box-shadow: var(--tw-shadow);
+  background: var(--block-bg-color);
+}
+
+table.md-table {
   padding: 0;
   word-break: initial;
+  color: var(--text-color);
 
   thead {
     margin-bottom: 0.5rem;
-    box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.09);
+    // box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.09);
 
     > tr {
       border-top: none;
     }
   }
 
+  thead,
+  & tr:nth-child(even) {
+    background-color: var(--table-even-bg-color);
+  }
+
   tr {
     border-top: 1px solid var(--table-border-color);
     margin: 0;
-    &:nth-child(even) {
-      background-color: var(--table-even-bg-color);
-    }
   }
 
   th,

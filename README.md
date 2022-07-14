@@ -6,12 +6,10 @@
 
 ### 自定义 typora 主题
 
-[湖中少女.css](./湖中少女.css)
-
-[言叶之庭.css](./言叶之庭.css)
+[主题模板](template.scss)
 
 ### 字体
 
-[汉仪正圆](./HYZhengYuan.ttf)
+[汉仪正圆](./xiaoshuaige/HYZhengYuan.ttf)
 
-[JetBrainsMono](JetBrainsMono.ttf)
+[JetBrainsMono](./xiaoshuaige/JetBrainsMono.ttf)
