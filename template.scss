@@ -22,8 +22,8 @@
   src: url('./xiaoshuaige/JetBrainsMono.ttf');
 }
 
-$--text-color-1: #304455; // 标题
-$--text-color-2: #363636; // 文本
+$--text-color-1: #363636; // 标题
+$--text-color-2: #304455; // 文本
 $--theme-color-1: #446a37; // a 文件高亮选中  主题基准色
 $--theme-color-2: #4c8045; // 引用块
 $--theme-color-3: #689450; // 行内代码
@@ -158,6 +158,22 @@ body {
     line-height: 1.4;
     color: var(--title-color);
     cursor: text;
+
+    &::before {
+      position: absolute;
+      right: calc(100% + 10px);
+      bottom: 0;
+      color: #b4b4b4;
+      font-size: 1rem;
+      font-weight: bold;
+      border: 0;
+      border-radius: 0;
+      left: auto;
+      float: none;
+      padding: 0;
+      vertical-align: baseline;
+      line-height: 2;
+    }
   }
 
   h1 {
@@ -168,6 +184,10 @@ body {
 
   h2 {
     font-size: 1.8rem;
+    &::before {
+      content: 'H2';
+      bottom: 0.2rem;
+    }
 
     .md-plain {
       border-bottom: 0.2rem solid var(--title-color);
@@ -184,18 +204,36 @@ body {
 
   h3 {
     font-size: 1.6rem;
+
+    &::before {
+      content: 'H3';
+      bottom: 0.18rem;
+    }
   }
 
   h4 {
     font-size: 1.4rem;
+    &::before {
+      content: 'H4';
+      bottom: 0.15rem;
+    }
   }
 
   h5 {
     font-size: 1.2rem;
+    &::before {
+      content: 'H5';
+      bottom: 0.1rem;
+    }
   }
 
   h6 {
     font-size: 1rem;
+
+    &::before {
+      content: 'H6';
+      bottom: 0.1rem;
+    }
   }
 
   /* lists */
