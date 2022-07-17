@@ -25,8 +25,8 @@
 $--text-color-1: #363636; // 标题
 $--text-color-2: #304455; // 文本
 $--theme-color-1: #446a37; // a 文件高亮选中  主题基准色
-$--theme-color-2: #4c8045; // 引用块
-$--theme-color-3: #689450; // 行内代码
+$--theme-color-2: #4c8045; // 引用块 强调
+$--theme-color-3: #689450; // 行内代码 mark
 $--theme-color-4: #a8bf8f; // checked kbd
 
 :root {
@@ -67,7 +67,7 @@ $--theme-color-4: #a8bf8f; // checked kbd
   --blockquote-color: $--theme-color-2;
   --blockquote-bg-color: rgba($--theme-color-2, 0.15);
 
-  --code-color: --theme-color-3;
+  --code-color: $--theme-color-3;
   --code--bg-color: rgba($--theme-color-3, 0.15);
 
   --code-block-color: #525252;
@@ -614,7 +614,7 @@ body {
     padding: 0.1rem 0.5rem;
     font-size: 1rem;
     font-weight: bold;
-    border: 0.15rem solid var(--code-color);
+    border: 0.1rem solid var(--code-color);
     border-radius: 0.4rem;
     color: var(--code-color);
     background-color: transparent;
@@ -629,6 +629,7 @@ body {
     vertical-align: top;
     color: var(--drake-highlight);
     background: transparent;
+    box-shadow: 1px 1px 0 var(--drake-highlight);
   }
 }
 

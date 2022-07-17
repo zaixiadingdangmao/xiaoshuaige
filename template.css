@@ -1,0 +1,644 @@
+@charset "UTF-8";
+/*
+ * @Description: typora 主题
+ * @Author: zhangxuelong
+ * @Date: 2022-05-16 15:31:03
+ */
+/* 引入图标库 */
+@font-face {
+  font-family: 'iconfont';
+  /* Project id 3402985 */
+  src: url("./xiaoshuaige/iconfont.woff2?t=1657793499420") format("woff2"), url("./xiaoshuaige/iconfont.woff?t=1657793499420") format("woff"), url("./xiaoshuaige/iconfont.ttf?t=1657793499420") format("truetype");
+}
+
+@font-face {
+  font-family: 'HYZhengYuan';
+  src: url("./xiaoshuaige/HYZhengYuan.ttf");
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url("./xiaoshuaige/JetBrainsMono.ttf");
+}
+
+:root {
+  /* 代码的等宽字体 */
+  --monospace: 'Hack', 'HYZhengYuan', 'JetBrainsMono', 'Fira Code', 'Consolas';
+  /* 文本字体 */
+  --text-font: var(--monospace);
+  /* 背景色 */
+  --bg-color: #ffffff;
+  /* 背景网格颜色 */
+  --bg--grid--color: rgba(68, 106, 55, 0.1);
+  /* 标题颜色 */
+  --title-color: #363636;
+  /* 文字颜色 */
+  --text-color: #304455;
+  /* 高亮色 */
+  --drake-accent: #446a37;
+  --drake-highlight: #a8bf8f;
+  --block-bg-color: white;
+  --block-border-color: rgba(54, 54, 54, 0.5);
+  --tw-shadow: 0 0 0px;
+  --border-radius-box: 0.5rem;
+  --yaml-color: #777;
+  --yaml-bg-color: #f7f7f7;
+  --a-color: var(--drake-accent);
+  --table-border-color: #dfe2e5;
+  --table-even-bg-color: #f8f8f8;
+  --blockquote-color: #4c8045;
+  --blockquote-bg-color: rgba(76, 128, 69, 0.15);
+  --code-color: #689450;
+  --code--bg-color: rgba(104, 148, 80, 0.15);
+  --code-block-color: #525252;
+  --code-block-border-color: #5b5b5e;
+  --code-block-bg-color: #f8f8f8;
+  /*
+   * ---------------------
+   * 系统配置样式 
+   */
+  /* 改变元字符的颜色，例如 markdown 中的“*” */
+  --md-char-color: #c7c5c5;
+  /* 改变元内容的颜色，例如 markdown 中的图像文本和链接地址 */
+  --meta-content-color: #5b808d;
+  /* 主按钮的颜色 */
+  --primary-color: #428bca;
+  --primary-btn-border-color: #285e8e;
+  --primary-btn-text-color: #fff;
+  /* 边栏等的边框 */
+  --window-border: 1px solid #eee;
+  /* 文件树或文件列表中当前项的背景色 */
+  --active-file-bg-color: #eee;
+  --active-file-text-color: inherit;
+  --active-file-border-color: var(--drake-accent);
+  /* 改变边栏颜色 */
+  --item-hover-bg-color: rgba(229, 229, 229, 0.59);
+  --side-bar-bg-color: #fafafa;
+  /* 鼠标悬停时控件项的背景，如侧边栏中的菜单 */
+  --item-hover-text-color: inherit;
+  --control-text-color: var(--text-color);
+  --meta-content-color: var(--title-color);
+  --rawblock-edit-panel-bd: var(--bg-color);
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--bg-color);
+}
+
+html,
+body {
+  font-family: var(--text-font);
+}
+
+#write {
+  margin: 0 auto;
+  padding: 30px 80px 100px;
+  max-width: 1400px;
+  background-image: linear-gradient(90deg, var(--bg--grid--color), 1px, transparent 0), linear-gradient(var(--bg--grid--color), 1px, transparent 0);
+  background-size: 20px 20px;
+  background-position: 50%;
+  background-color: var(--bg-color);
+  /*
+  * ---------------------
+  * Block Elements 
+  */
+  /* yaml */
+  /* headings */
+  /* lists */
+  /* blockquote */
+  /* hr */
+  /* diagram panel */
+  /* footnote definition */
+  /* Code Fences */
+  /*mermaid*/
+  /* 数学公式 */
+  /* 页脚 */
+  /**
+ * ---------------------
+ * Inline Elements
+ */
+  /* 代码片段 */
+  /* extend styles */
+}
+
+#write pre.md-meta-block {
+  margin-top: 0 !important;
+  padding: 1rem 1.5rem;
+  border: 0;
+  border-radius: var(--border-radius-box);
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--yaml-color);
+  background-color: var(--yaml-bg-color);
+}
+
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
+  position: relative;
+  margin: 1.5rem 0 1rem 0;
+  font-weight: bold;
+  line-height: 1.4;
+  color: var(--title-color);
+  cursor: text;
+}
+
+#write h1::before,
+#write h2::before,
+#write h3::before,
+#write h4::before,
+#write h5::before,
+#write h6::before {
+  position: absolute;
+  right: calc(100% + 10px);
+  bottom: 0;
+  color: #b4b4b4;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 0;
+  border-radius: 0;
+  left: auto;
+  float: none;
+  padding: 0;
+  vertical-align: baseline;
+  line-height: 2;
+}
+
+#write h1 {
+  margin-top: 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#write h2 {
+  font-size: 1.8rem;
+}
+
+#write h2::before {
+  content: 'H2';
+  bottom: 0.2rem;
+}
+
+#write h2 .md-plain {
+  border-bottom: 0.2rem solid var(--title-color);
+}
+
+#write h2 a {
+  text-decoration: none;
+}
+
+#write h2 a .md-plain {
+  border-bottom: 0.2rem solid var(--a-color);
+}
+
+#write h3 {
+  font-size: 1.6rem;
+}
+
+#write h3::before {
+  content: 'H3';
+  bottom: 0.18rem;
+}
+
+#write h4 {
+  font-size: 1.4rem;
+}
+
+#write h4::before {
+  content: 'H4';
+  bottom: 0.15rem;
+}
+
+#write h5 {
+  font-size: 1.2rem;
+}
+
+#write h5::before {
+  content: 'H5';
+  bottom: 0.1rem;
+}
+
+#write h6 {
+  font-size: 1rem;
+}
+
+#write h6::before {
+  content: 'H6';
+  bottom: 0.1rem;
+}
+
+#write #write > ul:first-child,
+#write #write > ol:first-child {
+  margin-top: 20px;
+}
+
+#write ol,
+#write ul {
+  margin-bottom: 25px;
+  padding-left: 20px;
+}
+
+#write ol li > ul,
+#write ul li > ul {
+  margin-bottom: 1rem;
+}
+
+#write ol li > ol,
+#write ul li > ol {
+  margin-bottom: 1rem;
+}
+
+#write ol li p,
+#write ul li p {
+  margin: 0.5rem 0;
+}
+
+#write ol {
+  padding-left: 35px;
+}
+
+#write blockquote {
+  position: relative;
+  margin: 2em 0;
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius-box);
+  font-weight: bold;
+  color: var(--blockquote-color);
+  box-shadow: var(--tw-shadow);
+  background-color: var(--blockquote-bg-color);
+}
+
+#write blockquote > p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+#write hr {
+  margin: 1rem 0 2rem;
+  padding: 0;
+  height: 0.15rem;
+  box-sizing: content-box;
+  border: 0 none;
+  background-color: var(--title-color);
+}
+
+#write p {
+  margin: 1.25rem 0;
+  line-height: 2;
+}
+
+#write .md-diagram-panel {
+  border-radius: var(--border-radius-box);
+  box-shadow: var(--tw-shadow);
+  background: var(--block-bg-color);
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview div {
+  color: var(--code-block-color) !important;
+  font-family: var(--text-font) !important;
+  font-size: 1rem !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .actor {
+  /* 方块 */
+  stroke: var(--code-block-border-color) !important;
+  fill: var(--code-block-bg-color) !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .actor > tspan {
+  /* 方块文字 */
+  fill: var(--code-block-color) !important;
+  stroke: none !important;
+  font-family: var(--text-font) !important;
+  font-size: 1rem !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .actor-line {
+  /* 竖线 */
+  stroke: var(--text-color) !important;
+  stroke-width: 1px;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .messageLine0 {
+  /* 横线 */
+  stroke-width: 1.5;
+  stroke-dasharray: none;
+  stroke: var(--text-color) !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .messageLine1 {
+  /* 虚线 */
+  stroke-width: 1.5 !important;
+  stroke-dasharray: 2, 2 !important;
+  stroke: var(--text-color) !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .messageText {
+  /* 描述文字 */
+  fill: var(--text-color) !important;
+  font-family: var(--text-font) !important;
+  font-size: 1rem !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .activation0 {
+  /* 长方形 */
+  fill: #e6e6e6 !important;
+  stroke: var(--text-color) !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .labelText,
+#write .md-diagram-panel .md-diagram-panel-preview .labelText > tspan {
+  /* 循环标记 */
+  fill: var(--code-block-color) !important;
+  font-family: var(--text-font) !important;
+  font-size: 1rem !important;
+  dominant-baseline: unset;
+  alignment-baseline: unset;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .labelBox {
+  /* 循环标记背景 */
+  stroke: var(--code-block-border-color) !important;
+  fill: var(--code-block-bg-color) !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .loopLine {
+  /* 循环标记虚线 */
+  stroke: var(--text-color) !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .loopText,
+#write .md-diagram-panel .md-diagram-panel-preview .loopText > tspan {
+  /* 循环名称 */
+  fill: var(--text-color) !important;
+  font-size: 1rem !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .sequenceNumber {
+  /* 序号 */
+  fill: var(--bg-color) !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .edgePath .path {
+  /* 箭头 */
+  stroke: var(--text-color) !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .edgeLabel rect {
+  /* 条件文字背景 */
+  fill: var(--bg-color) !important;
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .edgeLabel span {
+  /* 条件文字 */
+  color: var(--text-color);
+}
+
+#write .md-diagram-panel .md-diagram-panel-preview .node line,
+#write .md-diagram-panel .md-diagram-panel-preview .node rect,
+#write .md-diagram-panel .md-diagram-panel-preview .node circle,
+#write .md-diagram-panel .md-diagram-panel-preview .node ellipse,
+#write .md-diagram-panel .md-diagram-panel-preview .node polygon,
+#write .md-diagram-panel .md-diagram-panel-preview .node path {
+  /*形状*/
+  stroke: var(--code-block-border-color) !important;
+  fill: var(--code-block-bg-color) !important;
+}
+
+#write .md-def-footnote .md-def-name:before {
+  content: '';
+  position: absolute;
+  color: var(--text-color);
+}
+
+#write .md-fences {
+  padding: 1rem 0.5rem !important;
+  border: none;
+  border-radius: var(--border-radius-box);
+  font-size: 1rem;
+  word-wrap: normal;
+  border: 1px solid var(--block-border-color);
+  box-shadow: var(--tw-shadow);
+  color: var(--code-block-color);
+  background: var(--block-bg-color);
+}
+
+#write .md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+#write [id^='mermaidChart'] {
+  fill: var(--text-color) !important;
+}
+
+#write [id^='mermaidChart'] rect.rect {
+  fill: rgba(175, 255, 212, 0.3) !important;
+}
+
+#write .md-rawblock .md-rawblock-container {
+  border-radius: var(--border-radius-box);
+  border: 1px solid var(--block-border-color);
+  box-shadow: var(--tw-shadow);
+  background: var(--block-bg-color);
+  transition: 0.3s;
+}
+
+#write .md-rawblock .md-mathblock-panel {
+  border-radius: var(--border-radius-box);
+  border: 1px solid var(--block-border-color);
+  box-shadow: var(--tw-shadow);
+  background: var(--block-bg-color);
+  overflow: hidden;
+}
+
+#write .md-rawblock .md-mathblock-panel .md-rawblock-control {
+  padding: 0 0.5rem;
+}
+
+#write .md-rawblock .md-mathblock-panel .md-rawblock-before {
+  padding-top: 1rem;
+}
+
+#write .md-rawblock .md-mathblock-panel .md-rawblock-after {
+  padding-bottom: 1rem;
+}
+
+#write .md-rawblock .md-mathblock-panel .code-tooltip {
+  border-top: 1px solid #eef2f2;
+  box-shadow: none;
+}
+
+#write .md-footnote {
+  padding-left: 0;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--code-color);
+  background-color: var(--code--bg-color);
+}
+
+#write .md-footnote:before {
+  content: '[';
+}
+
+#write .md-footnote:after {
+  content: ']';
+}
+
+#write .ul-list li.md-task-list-item {
+  transition: 0.3s;
+}
+
+#write .ul-list li.md-task-list-item input[type='checkbox'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  transform: translateX(-125%);
+  width: 1.8rem;
+  height: 1.8rem;
+  opacity: 0;
+}
+
+#write .ul-list li.md-task-list-item::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  transform: translateX(-125%);
+  color: var(--drake-highlight);
+  line-height: initial;
+  font-size: 1.8rem;
+  font-family: 'iconfont' !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#write .ul-list li.md-task-list-item.task-list-done {
+  text-decoration: line-through;
+  color: #787878;
+}
+
+#write .ul-list li.md-task-list-item.task-list-done::before {
+  content: '\e646';
+}
+
+#write .ul-list li.md-task-list-item.task-list-not-done::before {
+  content: '\e653';
+}
+
+#write .modal-content {
+  border-radius: var(--border-radius-box);
+}
+
+#write code {
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.2rem;
+  color: var(--code-color);
+  background-color: var(--code--bg-color);
+}
+
+#write strong {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+#write a {
+  color: var(--a-color);
+}
+
+#write .md-image .md-meta {
+  /* 插入图片路径 */
+  padding: 2px 0 0 4px;
+  border-radius: 0.2rem;
+  font-family: initial;
+  color: inherit;
+}
+
+#write img {
+  border-left: none;
+  border-right: none;
+  vertical-align: baseline;
+  border-radius: var(--border-radius-box);
+  border: 1px solid var(--block-border-color);
+  box-shadow: var(--tw-shadow);
+  background-color: var(--block-bg-color);
+}
+
+#write mark {
+  padding: 0.1rem 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 0.1rem solid var(--code-color);
+  border-radius: 0.4rem;
+  color: var(--code-color);
+  background-color: transparent;
+}
+
+#write kbd {
+  margin: 0 0.4rem;
+  padding: 0.1rem 0.4rem;
+  border: 0.1rem solid var(--drake-highlight);
+  font-family: var(--text-font) !important;
+  font-size: 0.95rem;
+  vertical-align: top;
+  color: var(--drake-highlight);
+  background: transparent;
+  box-shadow: 1px 1px 0 var(--drake-highlight);
+}
+
+.md-table-fig {
+  border-radius: var(--border-radius-box);
+  border: 1px solid var(--block-border-color);
+  box-shadow: var(--tw-shadow);
+  background: var(--block-bg-color);
+}
+
+table.md-table {
+  padding: 0;
+  word-break: initial;
+  color: var(--text-color);
+}
+
+table.md-table thead {
+  margin-bottom: 0.5rem;
+}
+
+table.md-table thead > tr {
+  border-top: none;
+}
+
+table.md-table thead,
+table.md-table tr:nth-child(even) {
+  background-color: var(--table-even-bg-color);
+}
+
+table.md-table tr {
+  border-top: 1px solid var(--table-border-color);
+  margin: 0;
+}
+
+table.md-table th,
+table.md-table td {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border-right: 1px solid var(--table-border-color);
+}
+
+table.md-table th:first-child,
+table.md-table td:first-child {
+  margin-top: 0;
+}
+
+table.md-table th:last-child,
+table.md-table td:last-child {
+  margin-bottom: 0;
+  border-right: none;
+}
+
+table.md-table th {
+  font-weight: bold;
+}
