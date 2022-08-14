@@ -22,11 +22,11 @@
   src: url('./xiaoshuaige/JetBrainsMono.ttf');
 }
 
-$--text-color-1: #363636; // 标题
-$--text-color-2: #363636; // 文本
-$--theme-color-1: #68935c; // a 文件高亮选中 checked 主题基准色
-$--theme-color-2: #4d7f46; // 引用块
-$--theme-color-3: #436a36; // 行内代码
+$--text-color-1: #273849; // 标题
+$--text-color-2: #304455; // 文本
+$--theme-color-1: #31a062; // a 文件高亮选中 checked 主题基准色
+$--theme-color-2: #ff6666; // 引用块
+$--theme-color-3: #d63200; // 行内代码
 $--theme-color-4: #e36939; // kbd mark
 
 :root {
@@ -38,7 +38,7 @@ $--theme-color-4: #e36939; // kbd mark
   /* 背景色 */
   --bg-color: #ffffff;
   /* 背景网格颜色 */
-  --bg--grid--color: rgba($--theme-color-1, 0.1);
+  --bg--grid--color: rgba(#304455, 0.05);
 
   /* 标题颜色 */
   --title-color: $--text-color-1;
@@ -68,7 +68,7 @@ $--theme-color-4: #e36939; // kbd mark
   --blockquote-bg-color: rgba($--theme-color-2, 0.15);
 
   --code-color: $--theme-color-3;
-  --code--bg-color: rgba($--theme-color-3, 0.15);
+  --code--bg-color: rgba($--theme-color-3, 0.05);
 
   --code-block-color: #525252;
   --code-block-border-color: #5b5b5e;
@@ -623,13 +623,14 @@ body {
   kbd {
     margin: 0 0.4rem;
     padding: 0.1rem 0.4rem;
-    border: 0.1rem solid var(--drake-highlight);
+    border: 0.1rem solid var(--text-color);
+    border-radius: .4em;
     font-family: var(--text-font) !important;
     font-size: 0.95rem;
     vertical-align: top;
-    color: var(--drake-highlight);
+    color: var(--text-color);
     background: transparent;
-    box-shadow: 1px 1px 0 var(--drake-highlight);
+    box-shadow: .1em .1em .2em rgba(0, 0, 0, 0.3);
   }
 }
 
