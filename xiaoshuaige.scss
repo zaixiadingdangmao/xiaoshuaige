@@ -24,9 +24,9 @@
 
 $--text-color-1: #273849; // 标题
 $--text-color-2: #304455; // 文本
-$--theme-color-1: #31a062; // a 文件高亮选中 checked 主题基准色
-$--theme-color-2: #ff6666; // 引用块
-$--theme-color-3: #d63200; // 行内代码
+$--theme-color-1: #4bada0; // a 文件高亮选中 checked 主题基准色
+$--theme-color-2: #5b99b2; // 引用块
+$--theme-color-3: #3e8371; // 行内代码
 $--theme-color-4: #e36939; // kbd mark
 
 :root {
@@ -435,7 +435,7 @@ body {
     padding: 1rem 0.5rem !important;
     border: none;
     border-radius: var(--border-radius-box);
-    font-size: 1rem;
+    font-size: 0.9rem;
     word-wrap: normal;
     border: 1px solid var(--block-border-color);
     box-shadow: var(--tw-shadow);
