@@ -26,8 +26,8 @@
   --monospace: 'Hack', 'HYZhengYuan', 'JetBrainsMono', 'Fira Code', 'Consolas';
   /* 文本字体 */
   --text-font: var(--monospace);
-  --title-color: #273849;
-  --text-color: #304455;
+  --title-color: #04458f;
+  --text-color: #273849;
   /* 背景色 */
   --bg-color: #fff;
   /* 背景网格颜色 */
@@ -38,7 +38,7 @@
   --code-color: #04458f;
   --code--bg-color: rgba(4, 69, 143, 0.25);
   /* 高亮色 */
-  --drake-accent: #567e9e;
+  --drake-accent: #104f90;
   --highlight-color: #fff;
   --highlight-bg-color: #5b99b2;
   --brush-style: 1.12rem 0.8rem 0.94rem 1.06rem / 1.06rem 1.06rem 0.94rem 0.94rem;
